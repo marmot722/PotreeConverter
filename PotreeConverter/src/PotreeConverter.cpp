@@ -17,6 +17,7 @@
 #include "BINPointReader.hpp"
 #include "PlyPointReader.h"
 #include "XYZPointReader.hpp"
+#include "PCDPointReader.hpp"
 
 #include <chrono>
 #include <sstream>
@@ -25,9 +26,6 @@
 #include <vector>
 #include <math.h>
 #include <fstream>
-
-
-
 
 using rapidjson::Document;
 using rapidjson::StringBuffer;
@@ -70,6 +68,8 @@ PointReader *PotreeConverter::createPointReader(string path, PointAttributes poi
 		reader = new XYZPointReader(path, format, colorRange, intensityRange);
  	}else if(iEndsWith(path, ".bin")){
 		reader = new BINPointReader(path, aabb, scale, pointAttributes);
+	}else if(iEndsWith(path, ".pcd")){
+		reader = new PCDPointReader(path);
 	}
 
 	return reader;

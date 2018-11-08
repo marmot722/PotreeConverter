@@ -19,6 +19,7 @@ SOURCE_GROUP("Header Files\\io" FILES
 	include/PlyPointReader.h
 	include/PointReader.h
 	include/PointWriter.hpp
+	include/PCDPointReader.hpp
 	include/PTXPointReader.h
 	include/XYZPointReader.hpp
 )
